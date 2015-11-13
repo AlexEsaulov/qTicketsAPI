@@ -1,6 +1,6 @@
 <?php
 use Idesigning\QTicketsAPI\Facades\Order;
-
+/*
 Route::get('test_api', function () {
 
     var_dump(Order::findOrFail(25)->event->currency->name);
@@ -11,5 +11,4 @@ Route::get('test_api', function () {
         var_dump($order->toArray());
 
     });
-
-});
+});*/
