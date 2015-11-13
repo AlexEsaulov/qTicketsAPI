@@ -1,5 +1,7 @@
 <?php namespace Idesigning\QTicketsAPI;
 
+use Backend;
+use Idesigning\QTicketsAPI\Models\Settings;
 use System\Classes\PluginBase;
 
 /**
@@ -16,11 +18,26 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'qTicketsAPI',
+            'name' => 'qTicketsAPI',
             'description' => 'No description provided yet...',
-            'author'      => 'idesigning',
-            'icon'        => 'icon-leaf'
+            'author' => 'idesigning',
+            'icon' => 'icon-leaf'
         ];
     }
 
+    public function registerSettings()
+    {
+        return [
+            'settings' => [
+                'label' => 'Settings',
+                'description' => '',
+                'category' => 'qTickets API',
+                'icon' => 'icon-ticket',
+                'class' => Settings::class,
+                'order' => 500,
+                'keywords' => 'qtickets api'
+            ]
+        ];
+    }
 }
+

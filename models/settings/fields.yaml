@@ -1,0 +1,14 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        url:
+            span: auto
+            label: qTickets API URL
+
+        token:
+            span: auto
+            label: qTickets Token
