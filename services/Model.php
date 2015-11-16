@@ -78,12 +78,16 @@ class Model
             return $this->where(snake_case($matches[1]), $arguments[0]);
         }
 
+        if ($this->existsAttribute($name)) {
+            return $this->getAttribute($name);
+        }
+
         throw new Exception('Call to undefined method ' . $name);
     }
 
-    public function __get($attribute)
+    public function existsAttribute($attribute)
     {
-        return $this->getAttribute($attribute);
+        return array_key_exists($attribute, $this->attributes);
     }
 
     public function getAttribute($attribute)
@@ -95,6 +99,11 @@ class Model
         }
 
         return $this->attributes[$attribute];
+    }
+
+    public function __get($attribute)
+    {
+        return $this->getAttribute($attribute);
     }
 
     public function toArray()
