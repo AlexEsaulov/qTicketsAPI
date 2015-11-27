@@ -2,6 +2,7 @@
 
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Model
 {
@@ -109,6 +110,22 @@ class Model
     public function toArray()
     {
         return $this->attributes;
+    }
+
+    public function firstOrFail()
+    {
+        $result = $this->first();
+
+        if ($result) {
+            return $result;
+        }
+
+        throw new NotFoundHttpException('No records found');
+    }
+
+    public function first()
+    {
+        return $this->get()->first();
     }
 
     public function orderBy($column, $order)
