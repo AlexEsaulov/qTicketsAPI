@@ -18,13 +18,13 @@ class API
         $response = file_get_contents($url, null, stream_context_create(array(
             'http' => array(
                 'method' => 'POST',
+                'ignore_errors' => true,
                 'header' =>
                     'Content-Type: application/json' . PHP_EOL .
                     'Content-Length: ' . strlen($data_string) . PHP_EOL,
                 'content' => $data_string,
             ),
         )));
-
 
         $result = json_decode($response, true);
 
