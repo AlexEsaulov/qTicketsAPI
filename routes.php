@@ -21,10 +21,10 @@ Route::any('qtickets', function () {
         ),
     )));
 
-    $data = json_decode($response);
+    $data = json_decode($response, true);
 
-    if (isset($data->status) && $data->status == 200) {
-        return response($data->content, $data->status, $data->headers);
+    if (isset($data['status']) && $data['status'] == 200) {
+        return response($data['content'], $data['status'], $data['headers']);
     }
 
     return response($response, 500);
