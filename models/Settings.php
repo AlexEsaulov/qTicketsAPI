@@ -9,4 +9,13 @@ class Settings extends Model
     public $settingsCode = 'qticketsapi';
     public $settingsFields = 'fields.yaml';
 
+    public function getSettingsValue($key, $default = null)
+    {
+        if ($key == 'openapi_url') {
+            $parsed = parse_url($this->get('url'));
+            return $parsed['scheme'] . '://' . $parsed['host'] . '/js/openapi';
+        }
+
+        return parent::getSettingsValue($key, $default);
+    }
 }
