@@ -35,7 +35,8 @@ class Plugin extends PluginBase
                 'icon' => 'icon-ticket',
                 'class' => Settings::class,
                 'order' => 500,
-                'keywords' => 'qtickets api'
+                'keywords' => 'qtickets api',
+                'permissions' => ['idesigning.qtickets.admin']
             ]
         ];
     }

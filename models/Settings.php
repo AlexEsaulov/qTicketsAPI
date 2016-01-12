@@ -8,6 +8,7 @@ class Settings extends Model
     public $implement = ['System.Behaviors.SettingsModel'];
     public $settingsCode = 'qticketsapi';
     public $settingsFields = 'fields.yaml';
+    
 
     public function getSettingsValue($key, $default = null)
     {
