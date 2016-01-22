@@ -3,7 +3,7 @@
 
 use Idesigning\QTicketsAPI\Services\Model;
 
-class Date extends Model
+class Show extends Model
 {
 
 }
