@@ -10,5 +10,6 @@ class Order extends Model
         'show' => [Show::class],
         'site_user' => [SiteUser::class],
         'payment' => [Payment::class],
+        'client' => [Client::class],
     ];
 }
