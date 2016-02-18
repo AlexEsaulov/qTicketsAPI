@@ -4,7 +4,7 @@ use Idesigning\QTicketsAPI\Models\Settings;
 
 Route::any('qtickets', function () {
 
-    $url = Settings::get('url', 'http://qtickets.ru/api');
+    $url = Settings::get('url', 'https://qtickets.ru/api');
 
     $headers[] = 'Content-Type: ' . Request::server('HTTP_CONTENT_TYPE', 'application/x-www-form-urlencoded');
 

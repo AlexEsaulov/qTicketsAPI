@@ -9,7 +9,7 @@ class API
     public static function request(array $data)
     {
 
-        $url = Settings::get('url', 'http://qtickets.ru/api');
+        $url = Settings::get('url', 'https://qtickets.ru/api');
 
         $data['token'] = Settings::get('token');
 
