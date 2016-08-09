@@ -14,17 +14,21 @@ Route::any('qtickets', function () {
 
     $response = file_get_contents(rtrim($url, '/') . '/pay' . '?' . http_build_query(get()), null, stream_context_create(array(
         'http' => array(
-            'method' => 'POST',
-            'header' => join(PHP_EOL, $headers),
-            'content' => file_get_contents('php://input'),
-            'ignore_errors' => true
+            'method'        => 'POST',
+            'header'        => join(PHP_EOL, $headers),
+            'content'       => file_get_contents('php://input'),
+            'ignore_errors' => true,
         ),
     )));
 
     $data = json_decode($response, true);
 
-    if (isset($data['status']) && $data['status'] == 200) {
-        return response($data['content'], $data['status'], $data['headers']);
+    if (is_array($data) && array_key_exists('status', $data)) {
+        return response(
+            $data['content'],
+            $data['status'],
+            $data['headers']
+        );
     }
 
     return response($response, 500);
