@@ -2,7 +2,7 @@
 
 use Idesigning\QTicketsAPI\Models\Settings;
 
-Route::any('qtickets', function () {
+Route::any('qtickets-proxy', function () {
 
     $url = Settings::get('url', 'https://qtickets.ru/api');
 
